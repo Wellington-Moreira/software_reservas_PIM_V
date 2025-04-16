@@ -3,7 +3,9 @@ package test;
 import model.Equipamento;
 import model.Reserva;
 import model.Sala;
+import model.TipoUsuario;
 import model.Usuario;
+import util.DatabaseSeeder;
 import dao.EquipamentoDAO;
 import dao.ReservaDAO;
 import dao.SalaDAO;
@@ -13,20 +15,22 @@ public class TesteMain {
 	
 public static void main(String[] args) {
 	
+	DatabaseSeeder.criarAdminPadrao();//Sempre cria admin padrão
+	
 	UsuarioDAO usuarioDAO = new UsuarioDAO();
 	SalaDAO salaDAO = new SalaDAO();
 	EquipamentoDAO equipamentoDAO = new EquipamentoDAO();
 	ReservaDAO reservaDAO = new ReservaDAO();
 	
 	//Criando os usuarios
-	Usuario u1 = new Usuario("Bruna");	usuarioDAO.salvar(u1);
-	Usuario u2 = new Usuario("Wellington");	usuarioDAO.salvar(u2);
-	Usuario u3 = new Usuario("Liliane");	usuarioDAO.salvar(u3);
-	Usuario u4 = new Usuario("Lilian");	usuarioDAO.salvar(u4);
-	Usuario u5 = new Usuario("Astolfo");	usuarioDAO.salvar(u5);
-	Usuario u6 = new Usuario("Pikachu");	usuarioDAO.salvar(u6);
-	Usuario u7 = new Usuario("Bart Simpsom");	usuarioDAO.salvar(u7);
-	Usuario u8 = new Usuario("Cubo Mágico");	usuarioDAO.salvar(u8);
+	Usuario u1 = new Usuario("Bruna", "misuriChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u1);
+	Usuario u2 = new Usuario("Wellington", "shimulh", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u2);
+	Usuario u3 = new Usuario("Liliane", "liliChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u3);
+	Usuario u4 = new Usuario("Lilian", "abbaChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u4);
+	Usuario u5 = new Usuario("Astolfo", "astolfoChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u5);
+	Usuario u6 = new Usuario("Pikachu", "pikaChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u6);
+	Usuario u7 = new Usuario("Bart Simpsom", "bartChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u7);
+	Usuario u8 = new Usuario("Cubo Mágico", "cuboChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u8);
 	
 	//Criando as salas
 	Sala s1 = new Sala("1-01"); salaDAO.salvar(s1);

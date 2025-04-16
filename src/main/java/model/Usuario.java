@@ -33,7 +33,7 @@ public class Usuario {
 	
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private Enum<TipoUsuario> tipo;
+	private TipoUsuario tipo;
 	
 	//Atributos de associação
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -84,10 +84,10 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Enum<TipoUsuario> getTipo() {
+	public TipoUsuario getTipo() {
 		return tipo;
 	}
-	public void setTipo(Enum<TipoUsuario> tipo) {
+	public void setTipo(TipoUsuario tipo) {
 		this.tipo = tipo;
 	}
 
