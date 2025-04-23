@@ -29,7 +29,9 @@ public class EquipamentoDAO {
 		EntityManager em = JPAUtil.getEntityManager();
 		
 		try {
-			return em.find(Equipamento.class, id);
+			Equipamento equipamento = em.find(Equipamento.class, id);
+			equipamento.getReservas().size(); // Força inicialização da lista
+			return equipamento;
 		} finally {
 			em.close();
 		}				

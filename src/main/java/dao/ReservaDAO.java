@@ -19,7 +19,7 @@ public class ReservaDAO {
 		
 		try {
 			em.getTransaction().begin();
-			em.persist(reserva);
+			em.merge(reserva);
 			em.getTransaction().commit();
 		} finally {
 			em.close();
