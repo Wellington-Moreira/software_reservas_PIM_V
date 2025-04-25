@@ -1,15 +1,16 @@
 package test;
 
+import controller.UsuarioController;
+import dao.EquipamentoDAO;
+import dao.ReservaDAO;
+import dao.SalaDAO;
+import dao.UsuarioDAO;
 import model.Equipamento;
 import model.Reserva;
 import model.Sala;
 import model.TipoUsuario;
 import model.Usuario;
 import util.DatabaseSeeder;
-import dao.EquipamentoDAO;
-import dao.ReservaDAO;
-import dao.SalaDAO;
-import dao.UsuarioDAO;
 
 public class TesteMain {
 	
@@ -21,16 +22,36 @@ public static void main(String[] args) {
 	SalaDAO salaDAO = new SalaDAO();
 	EquipamentoDAO equipamentoDAO = new EquipamentoDAO();
 	ReservaDAO reservaDAO = new ReservaDAO();
+	UsuarioController usuarioController = new UsuarioController();
 	
 	//Criando os usuarios
-	Usuario u1 = new Usuario("Bruna", "misuriChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u1);
-	Usuario u2 = new Usuario("Wellington", "shimulh", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u2);
-	Usuario u3 = new Usuario("Liliane", "liliChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u3);
-	Usuario u4 = new Usuario("Lilian", "abbaChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u4);
-	Usuario u5 = new Usuario("Astolfo", "astolfoChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u5);
-	Usuario u6 = new Usuario("Pikachu", "pikaChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u6);
-	Usuario u7 = new Usuario("Bart Simpsom", "bartChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u7);
-	Usuario u8 = new Usuario("Cubo Mágico", "cuboChan", "123123123", TipoUsuario.COMUM);	usuarioDAO.salvar(u8);
+//	Usuario u1 = new Usuario("Bruna", "misuriChan", "123123123", TipoUsuario.COMUM);
+//	Usuario u2 = new Usuario("Wellington", "shimulh", "123123123", TipoUsuario.COMUM);
+//	Usuario u3 = new Usuario("Liliane", "liliChan", "123123123", TipoUsuario.COMUM);
+//	Usuario u4 = new Usuario("Lilian", "abbaChan", "123123123", TipoUsuario.COMUM);
+//	Usuario u5 = new Usuario("Astolfo", "astolfoChan", "123123123", TipoUsuario.COMUM);
+//	Usuario u6 = new Usuario("Pikachu", "pikaChan", "123123123", TipoUsuario.COMUM);
+//	Usuario u7 = new Usuario("Bart Simpsom", "bartChan", "123123123", TipoUsuario.COMUM);
+//	Usuario u8 = new Usuario("Cubo Mágico", "cuboChan", "123123123", TipoUsuario.COMUM);
+	
+	usuarioController.cadastrarUsuario("Bruna", "misuriChan", "123123123", TipoUsuario.COMUM);
+	usuarioController.cadastrarUsuario("Wellington", "shimulh", "123123123", TipoUsuario.COMUM);
+	usuarioController.cadastrarUsuario("Liliane", "liliChan", "123123123", TipoUsuario.COMUM);
+	usuarioController.cadastrarUsuario("Lilian", "abbaChan", "123123123", TipoUsuario.COMUM);
+	usuarioController.cadastrarUsuario("Astolfo", "astolfoChan", "123123123", TipoUsuario.COMUM);
+	usuarioController.cadastrarUsuario("Pikachu", "pikaChan", "123123123", TipoUsuario.COMUM);
+	usuarioController.cadastrarUsuario("Bart Simpsom", "bartChan", "123123123", TipoUsuario.COMUM);
+	usuarioController.cadastrarUsuario("Cubo Mágico", "cuboChan", "123123123", TipoUsuario.COMUM);
+	
+	Usuario u1 = usuarioDAO.buscarPorLogin("Bruna");
+	Usuario u2 = usuarioDAO.buscarPorLogin("Wellington");
+	Usuario u3 = usuarioDAO.buscarPorLogin("Liliane");
+	Usuario u4 = usuarioDAO.buscarPorLogin("Lilian");
+	Usuario u5 = usuarioDAO.buscarPorLogin("Astolfo");
+	Usuario u6 = usuarioDAO.buscarPorLogin("Pikachu");
+	Usuario u7 = usuarioDAO.buscarPorLogin("Bart Simpsom");
+	Usuario u8 = usuarioDAO.buscarPorLogin("Cubo Mágico");
+	
 	
 	//Criando as salas
 	Sala s1 = new Sala("1-01"); salaDAO.salvar(s1);
